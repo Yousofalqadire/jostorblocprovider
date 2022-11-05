@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:blocproject/domin/entities/photo.dart';
 import 'package:blocproject/domin/entities/product_entity.dart';
-import 'package:blocproject/domin/failure/failure.dart';
+
 
 import 'package:http/http.dart' as http;
 
@@ -13,7 +13,8 @@ abstract class ProductsDataSource {
 }
 
 class ProductDataSourceImpl implements ProductsDataSource {
-  var client = http.Client();
+  final  http.Client client;
+  ProductDataSourceImpl({required this.client});
   @override
   Future<List<ProductEntity>> getProductsFromDataSource() async {
     List<ProductEntity> products = [];

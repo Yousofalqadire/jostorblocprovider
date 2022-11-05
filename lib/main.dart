@@ -3,8 +3,10 @@ import 'package:blocproject/app/screens/main_screen/main_screen.dart';
 import 'package:blocproject/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-void main() {
+import 'injection.dart' as di; // dependency injection
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeService(),
     child: const MyApp(),

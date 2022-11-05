@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import '../../../injection.dart';
+
 class MainScreenArapper extends StatelessWidget {
   const MainScreenArapper({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainscreenBloc(),
+      create: (context) => sl<MainscreenBloc>(),
       child: MainScreen(),
     );
   }

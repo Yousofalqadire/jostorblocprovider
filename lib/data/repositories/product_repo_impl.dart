@@ -6,7 +6,8 @@ import 'package:dartz/dartz.dart';
 import '../data_source/products_data_source.dart';
 
 class ProductRepoImpl implements ProductsRepo {
-  final ProductsDataSource productsDataSource = ProductDataSourceImpl();
+  final ProductsDataSource productsDataSource;
+  ProductRepoImpl({required this.productsDataSource});
   @override
   Future<Either<Failure, List<ProductEntity>>> getProducts() async {
     try {

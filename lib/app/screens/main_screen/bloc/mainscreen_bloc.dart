@@ -7,8 +7,8 @@ part 'mainscreen_event.dart';
 part 'mainscreen_state.dart';
 
 class MainscreenBloc extends Bloc<MainscreenEvent, MainscreenState> {
-  final ProductUseCases productUseCases = ProductUseCases();
-  MainscreenBloc() : super(MainscreenInitial()) {
+  final ProductUseCases productUseCases;
+  MainscreenBloc({required this.productUseCases}) : super(MainscreenInitial()) {
     on<GetDataRequest>((event, emit) async {
       emit(MainScreenLoader());
       final failureOrProducts = await productUseCases.getProducts();
